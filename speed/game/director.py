@@ -22,9 +22,9 @@ class Director:
         """
         while self._keep_playing:
             self._get_inputs()
-        '''    self._do_updates()
+            #self._do_updates()
             self._do_outputs()
-            sleep(constants.FRAME_LENGTH)'''
+            sleep(constants.FRAME_LENGTH)
 
     
     def _get_inputs(self):
@@ -35,7 +35,8 @@ class Director:
             self (Director): An instance of Director.
         """
         letter = self._input_service.get_letter()
-        self._word.build_word(letter)
+        self.buffer = self._word.build_word(letter)
+        
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -44,8 +45,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self._handle_body_collision()
-        self._handle_food_collision()
+        pass
         
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -56,7 +56,5 @@ class Director:
             self (Director): An instance of Director.
         """
         self._output_service.clear_screen()
-        self._output_service.draw_actor(self._food)
-        self._output_service.draw_actors(self._snake.get_all())
-        self._output_service.draw_actor(self._score)
+        self._output_service.update_buffer(self.buffer)
         self._output_service.flush_buffer()

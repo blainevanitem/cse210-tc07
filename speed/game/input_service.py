@@ -28,6 +28,7 @@ class InputService:
         Returns:
             string: The letter that was typed.
         """
+        print("hi")
         result = ""
         event = self._screen.get_key()
         if not event is None:

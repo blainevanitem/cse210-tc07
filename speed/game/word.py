@@ -6,4 +6,5 @@ class Word:
 
     def build_word(self,letter):
         letter = letter
-        self._word = self._word + letter
+        self._word += letter
+        return self._word

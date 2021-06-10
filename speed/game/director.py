@@ -22,7 +22,7 @@ class Director:
         """
         while self._keep_playing:
             self._get_inputs()
-            #self._do_updates()
+            self._do_updates()
             self._do_outputs()
             sleep(constants.FRAME_LENGTH)
 
@@ -34,8 +34,9 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        letter = self._input_service.get_letter()
-        self.buffer = self._word.build_word(letter)
+        self.letter = self._input_service.get_letter()
+        self.buffer = self._word.build_word(self.letter)
+        self._word.get_words()
         
 
     def _do_updates(self):
@@ -45,7 +46,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        pass
+        self.score = self._score.get_score()
         
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -57,4 +58,5 @@ class Director:
         """
         self._output_service.clear_screen()
         self._output_service.update_buffer(self.buffer)
+        self._output_service.update_score(self.score)
         self._output_service.flush_buffer()

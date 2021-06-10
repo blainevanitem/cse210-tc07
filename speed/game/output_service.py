@@ -25,7 +25,10 @@ class OutputService:
         self._screen.print_at("-" * constants.MAX_X, 0, constants.MAX_Y, 7)
 
     def update_buffer(self,buffer):
-        self._screen.print_at("-Buffer: " + buffer,0,7)
+        self._screen.print_at("-Buffer: " + buffer,0,constants.MAX_Y)
+
+    def update_score(self,score):
+        self._screen.print_at("-Score: " + str(score),0,0)
     
     def flush_buffer(self):
         """Renders the screen.

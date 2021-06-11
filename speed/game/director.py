@@ -48,7 +48,8 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self.score = self._score.get_score()
+        if self._score.get_score(self._word._word,self._word._words) == True:
+            self._word.clear_word()
         
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -62,5 +63,5 @@ class Director:
         self._output_service.clear_screen()
         self._output_service.display_words(self._word._words)
         self._output_service.update_buffer(self.buffer)
-        self._output_service.update_score(self.score)
+        self._output_service.update_score(self._score.score)
         self._output_service.flush_buffer()

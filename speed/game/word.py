@@ -22,3 +22,6 @@ class Word:
         else:
             self._word += letter
         return self._word
+
+    def clear_word(self):
+        self._word = ""

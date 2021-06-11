@@ -48,4 +48,4 @@ class OutputService(Actor):
         self._screen.print_at(words[3],self.position4,self.position4y)
         self._screen.print_at(words[4],self.position5,self.position5y)
         self.move_letters()
-        print(words)
+        

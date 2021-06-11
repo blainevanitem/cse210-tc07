@@ -13,7 +13,7 @@ class Word:
         self.my_file.close()
         for x in range(5):
             self._words[x] = self._words_list[random.randint(0,len(self._words_list)-1)]
-        print(self._words)
+        
 
     def build_word(self,letter):
         letter = letter
@@ -25,3 +25,14 @@ class Word:
 
     def clear_word(self):
         self._word = ""
+
+    def update_with_new_word(self,x):
+        self._words[x] = self._words_list[random.randint(0,len(self._words_list)-1)]
+
+    def is_word_on_screen(self,word,words,updateIndex):
+        for x in range(5):
+            if word == words[x].rstrip('\n'):
+                updateIndex = x
+                
+        return updateIndex
+    

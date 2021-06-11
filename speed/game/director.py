@@ -14,6 +14,7 @@ class Director:
         self._score = Score()
         self._point = Point()
         self._first_display = True
+        self._update_index = 0
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -49,7 +50,11 @@ class Director:
             self (Director): An instance of Director.
         """
         if self._score.get_score(self._word._word,self._word._words) == True:
+            
+            self._update_index = self._word.is_word_on_screen(self._word._word,self._word._words,self._update_index)
             self._word.clear_word()
+            self._word.update_with_new_word(self._update_index)
+            
         
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 

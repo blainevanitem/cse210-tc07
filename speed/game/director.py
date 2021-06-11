@@ -13,6 +13,7 @@ class Director:
         self._word = Word()
         self._score = Score()
         self._point = Point()
+        self._first_display = True
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -20,6 +21,7 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
+        self._word.get_words()
         while self._keep_playing:
             self._get_inputs()
             self._do_updates()
@@ -36,7 +38,7 @@ class Director:
         """
         self.letter = self._input_service.get_letter()
         self.buffer = self._word.build_word(self.letter)
-        self._word.get_words()
+        
         
 
     def _do_updates(self):
@@ -56,7 +58,9 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+
         self._output_service.clear_screen()
+        self._output_service.display_words(self._word._words)
         self._output_service.update_buffer(self.buffer)
         self._output_service.update_score(self.score)
         self._output_service.flush_buffer()

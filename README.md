@@ -41,3 +41,7 @@ root                    (project root folder)
 ## Authors
 ---
 * # TODO: Add names and emails here
+* Blayne Belisle dragonfireangel@live.com
+* Steven Briskey,bri20040@byui.edu 
+* Juan Chen, chenmilla@byui.edu
+* Blaine Van Item - van17021@byui.edu

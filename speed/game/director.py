@@ -5,7 +5,13 @@ from game.point import Point
 from game.score import Score
 from game.word import Word
 
+# This class is used to direct where things go and are called from to allow
+# The game to function as well as help to manage what and where info goes.
+
 class Director:
+
+    # This directs where thing comes and goes.
+
     def __init__(self,input_service,output_service):    
         self._input_service = input_service
         self._keep_playing = True
@@ -15,6 +21,8 @@ class Director:
         self._point = Point()
         self._first_display = True
         self._update_index = 0
+
+    # This controls the start of the game and if the game continues.
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -29,7 +37,7 @@ class Director:
             self._do_outputs()
             sleep(constants.FRAME_LENGTH)
 
-    
+
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
         that means getting the desired direction and moving the snake.

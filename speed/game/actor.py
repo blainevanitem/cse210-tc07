@@ -1,6 +1,12 @@
 import random
 
+# This is the Actor class which controls the position of the 5 words
+# Displayed for the user for the game of speed.
+
 class Actor:
+
+    # Defines the position of the words as they go between one side of the screen to the other
+
     def __init__(self):
         self.position1 = random.randint(10,50)
         self.position2 = random.randint(10,50)
@@ -13,6 +19,8 @@ class Actor:
         self.position3y = random.randint(9,12)
         self.position4y = random.randint(13,16)
         self.position5y = random.randint(17,19)
+
+    # Defines the position of where the word will be as it slides across the screen.
 
     def move_letters(self):
         if self.position1 == 60:

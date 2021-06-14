@@ -27,8 +27,12 @@ class OutputService(Actor):
         self._screen.print_at("-" * constants.MAX_X, 0, 0, 7)
         self._screen.print_at("-" * constants.MAX_X, 0, constants.MAX_Y, 7)
 
+    # This updates the buffer and helps to clear it and allow for the player to enter words.
+
     def update_buffer(self,buffer):
         self._screen.print_at("-Buffer: " + buffer,0,constants.MAX_Y)
+
+    # This keeps track of the score of the player after entering words in the buffer.
 
     def update_score(self,score):
         self._screen.print_at("-Score: " + str(score),0,0)
@@ -40,6 +44,8 @@ class OutputService(Actor):
             self (OutputService): An instance of OutputService.
         """ 
         self._screen.refresh() 
+
+    # This defines the word and displays the word and the starting position of said word when it appears on the screen.
 
     def display_words(self,words):
         self._screen.print_at(words[0],self.position1,self.position1y)
